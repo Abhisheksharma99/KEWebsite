@@ -2,7 +2,7 @@ import { Link } from "react-router-dom"; // Use React Router Link
 import productimg from "./images/50-ltr-rocket-can-500x500.jpg";
 import Type from "./Type";
 
-const ProductCard = ({ product, category, onClick }) => (
+const ProductCard = ({ product, category }) => (
   <div className="col-md-3 mt-2">
     <div className="cardproducts">
       <div className="card-body">
@@ -27,8 +27,8 @@ const ProductCard = ({ product, category, onClick }) => (
             {category}
           </Link>
         </div>
-        <Link to={`/product#${category.toLowerCase().replace(/\s+/g, "")}`}>
-          <button type="button" className="btn productbtn" onClick={onClick}>
+        <Link to={`/product/${encodeURIComponent(category)}/${encodeURIComponent(product)}`}>
+          <button type="button" className="btn productbtn">
             <i className="fas fa-eye mr-2"></i>&nbsp;View
           </button>
         </Link>
@@ -37,7 +37,7 @@ const ProductCard = ({ product, category, onClick }) => (
   </div>
 );
 
-const ProductCategory = ({ title, products, category, onClick }) => (
+const ProductCategory = ({ title, products, category }) => (
   <>
     <h1
       id={category}
@@ -52,7 +52,6 @@ const ProductCategory = ({ title, products, category, onClick }) => (
             key={index}
             product={product}
             category={title}
-            onClick={onClick}
           />
         ))}
       </div>
@@ -64,17 +63,17 @@ const ProductPage = () => {
 
   const defoamers = [
     "CATALYST AF ECO - Economy Silicone Defoamer/Antifoam",
-    "CATALYST SAF 715 - 15% Silicone Defoamer/Antifoam",
-    "CATALYST SAF 720 - 20% Silicone Defoamer/Antifoam",
-    "CATALYST SAF 730 - 30% Silicone Defoamer/Antifoam",
-    "CATALYST SAF 740 - 40% Silicone Defoamer/Antifoam",
-    "CATALYST SAF 750 - 50% Silicone Defoamer/Antifoam",
-    "CATALYST SAF 760 - 60% Silicone Defoamer/Antifoam",
+    "CATALYST SAF 715 - 15 Silicone Defoamer/Antifoam",
+    "CATALYST SAF 720 - 20 Silicone Defoamer/Antifoam",
+    "CATALYST SAF 730 - 30 Silicone Defoamer/Antifoam",
+    "CATALYST SAF 740 - 40 Silicone Defoamer/Antifoam",
+    "CATALYST SAF 750 - 50 Silicone Defoamer/Antifoam",
+    "CATALYST SAF 760 - 60 Silicone Defoamer/Antifoam",
     "CATALYST SAF PP 730 Defoamer/ Antifoam for Paper & Pulp",
     "CATALYST SAF SI 730 Defoamer/ Antifoam for Starch Industry",
     "CATALYST SAF TP 720 Defoamer/ Antifoam for ETP/STP Plants",
     "CATALYST SAF TP 730 Defoamer/ Antifoam for ETP/STP Plants",
-    "CATALYST Defoamer/ Antifoam Concentrate (100%)",
+    "CATALYST Defoamer/ Antifoam Concentrate (100 percent)",
   ];
   const siliconeEmulsions = [
     "CATALYST SE 15 Silicone Emulsion",

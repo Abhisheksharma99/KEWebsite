@@ -68,7 +68,7 @@ function App() {
         <Route path="/blogs" component={BlogsPage} />
         <Route path="/aboutus" component={Aboutus} />
         <Route path="/contactus" component={Contactus} />
-        <Route path="/product" component={Singleproduct} />
+        <Route path="/product/:category/:product" component={Singleproduct} />
       </Switch>
       <Footer />
     </main>
