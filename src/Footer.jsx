@@ -8,7 +8,7 @@ const Footer = () => {
       <footer className="text-center text-lg-start text-white">
         <section className="d-flex justify-content-between p-4 sociallinks">
           <div className="me-5">
-            <span className='fw-bolder bg-dark'>Get connected with us on social networks:</span>
+            <span className='fw-bolder'>Get connected with us on social networks:</span>
           </div>
 
           <div className="iconcontainer">

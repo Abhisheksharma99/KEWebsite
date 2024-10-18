@@ -1,114 +1,48 @@
 import React from "react";
+import { Link } from "react-router-dom"; // Import Link for internal routing
 import productimg from "./images/50-ltr-rocket-can-500x500.jpg";
 import "./index.css";
+
 const Products = () => {
   return (
     <div className="container mb-4">
-      <div className="row text-center mb-4 g-2 g-lg-3">
-        <h1 className="productheading border-bottom text-center mb-5 fw-bolder">
-          Popular Products
-        </h1>
-        <div className="col">
-          <div className="cardshadow card cardborder">
-            <img src={productimg} className="card-img-top" alt="..." />
-            <div className="card-body">
-              <h5 className="card-title fw-bold">Defoamers & Antifoams</h5>
-              <p className="card-text"></p>
-              <button
-                className="btn-outline modalbtn btn fw-bold"
-                data-bs-toggle="modal"
-                data-bs-target="#staticBackdrop1"
-              >
-                <a href="/products#defoamers">
-                  <span className="text-white">View Varients</span>
-                </a>
-              </button>
-            </div>
-          </div>
-        </div>
+      <h1 className="productheading border-bottom text-center mb-5 fw-bolder">
+        Popular Products
+      </h1>
 
-        <div className="col">
-          <div className="cardshadow card cardborder">
-            <img src={productimg} className="card-img-top" alt="..." />
-            <div className="card-body">
-              <h5 className="card-title fw-bold ">Silicone Emulsion</h5>
-              <p className="card-text"></p>
-              <button
-                className="btn-outline modalbtn btn fw-bold"
-                data-bs-toggle="modal"
-                data-bs-target="#staticBackdrop2"
-              >
-                <a href="/products#siliconeemulsions">
-                  {" "}
-                  <span className="text-white">View Varients</span>
-                </a>
-              </button>
+      {/* Responsive row for cards */}
+      <div className="row g-4 justify-content-center">
+        {[
+          { title: "Defoamers & Antifoams", link: "#defoamers" },
+          { title: "Silicone Emulsion", link: "#siliconeemulsions" },
+          { title: "Paper and Pulp Chemicals", link: "#paperandpulp" },
+          { title: "Car Care Products", link: "#carcare" }
+        ].map((product, index) => (
+          <div className="col-12 col-sm-6 col-lg-3" key={index}>
+            <div className="card cardshadow cardborder h-100">
+              <img src={productimg} className="card-img-top" alt={product.title} />
+              <div className="card-body d-flex flex-column">
+                <h5 className="card-title fw-bold text-center">{product.title}</h5>
+                <div className="mt-auto">
+                  <Link to={`/products${product.link}`} className="text-decoration-none">
+                    <button className="btn-outline modalbtn btn fw-bold w-100">
+                      View Variants
+                    </button>
+                  </Link>
+                </div>
+              </div>
             </div>
           </div>
-        </div>
-        <div className="col">
-          <div className="cardshadow card cardborder">
-            <img src={productimg} className="card-img-top" alt="..." />
-            <div className="card-body">
-              <h5 className="card-title fw-bold">Paper and Pulp Chemicals</h5>
-              <p className="card-text"></p>
-              <button
-                className="btn-outline modalbtn btn fw-bold"
-                data-bs-toggle="modal"
-                data-bs-target="#staticBackdrop3"
-              >
-                <a href="/products#paperandpulp">
-                  <span className="text-white">View Varients</span>
-                </a>
-              </button>
-            </div>
-          </div>
-        </div>
-        <div className="col">
-          <div className="cardshadow card cardborder">
-            <img src={productimg} className="card-img-top" alt="..." />
-            <div className="card-body">
-              <h5 className="card-title fw-bold">Car Care Products</h5>
-              <p className="card-text"></p>
-              <button
-                className="btn-outline modalbtn btn fw-bold"
-                data-bs-toggle="modal"
-                data-bs-target="#staticBackdrop4"
-              >
-                <a href="/products#carcare">
-                  <span className="text-white">View Varients</span>
-                </a>
-              </button>
-            </div>
-          </div>
-        </div>
-        <div className="col">
-          <div className="cardshadow card cardborder">
-            <img src={productimg} className="card-img-top" alt="..." />
-            <div className="card-body">
-              <h5 className="card-title fw-bold text-nowrap">
-                Water Treatment
-                <br /> Chemicals
-              </h5>
-              <p className="card-text"></p>
-              <button
-                className="btn-outline modalbtn btn fw-bold"
-                data-bs-toggle="modal"
-                data-bs-target="#staticBackdrop5"
-              >
-                <a href="/products#watertreatment">
-                  <span className="text-white">View Varients</span>
-                </a>
-              </button>
-            </div>
-          </div>
-        </div>
+        ))}
       </div>
-      <a href="/products#defoamer" className="text-decoration-none">
-        <button className="btn btn-lg productbtn d-flex justify-content-center text-center btn-outline fw-bold">
-          View All Products
-        </button>
-      </a>
+
+      <div className="d-flex justify-content-center mt-4">
+        <Link to="/products#defoamer" className="text-decoration-none">
+          <button className="btn btn-lg productbtn btn-outline fw-bold">
+            View All Products
+          </button>
+        </Link>
+      </div>
     </div>
   );
 };

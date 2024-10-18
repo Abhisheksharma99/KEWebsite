@@ -7,7 +7,6 @@ import image2 from "./images/image2.png";
 import image3 from "./images/image3.jpg";
 import image4 from "./images/image4.png";
 import image5 from "./images/image5.png";
-import Type from "./Type";
 const ImgCarousel = () => {
     const productImages = [image1, image2, image3, image4, image5];
     const industryNames = ["Chemicals for General Industries","Chemicals for Pulp and Paper Industries","Chemicals for textile Industries","Chemicals for Sugar Mills","Chemicals for Distillery"]
@@ -22,7 +21,7 @@ const ImgCarousel = () => {
           useKeyboardArrows
           dynamicHeight
         >
-          {productImages.map(item => (<div>
+          {productImages.map((item, index) => (<div key={index}>
             <img src={item} alt="" />
             <p className="legend captionclr fw-bolder fs-6">
               {industryNames[productImages.indexOf(item)]}
